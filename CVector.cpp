@@ -1,4 +1,4 @@
-#include "CVector.h"
+#include "CVector.hpp"
 #include <cmath>
 
 void CVector::Set(int _Index, float _Value){
