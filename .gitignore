@@ -1,3 +1,5 @@
 /build/
 /.vscode/
 /.vs/slnx.sqlite
+/x64/
+/Debug/
