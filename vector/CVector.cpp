@@ -3,13 +3,13 @@
 
 void CVector::Set(int _Index, float _Value){
 
-    this->m_Values[_Index] = _Value;
+    this->m_Values.at(_Index) = _Value;
 
 };
 
-void CVector::Set(CVector& _Vector){
+void CVector::Set(CVector* _Vector){
 
-    this->m_Values = _Vector;
+    this->m_Values = _Vector->Get();
 };
 
 
@@ -19,19 +19,19 @@ float CVector::Get(int _Index) const{
 
 };
 
-float* CVector::Get() const{
+std::array<float, CVector::s_Dimensions> CVector::Get() const{
 
-    return this->m_Values;
+    return m_Values;
 
 };
 
 CVector* CVector::Add(CVector& _rOther){
 
-    float result[this->s_Dimensions];
+    std::array<float, s_Dimensions> result = {};
 
     for (int i = 0; i < this->s_Dimensions; i++) {
         
-        result[i] = this->m_Values[i] + _rOther[i];
+        result[i] = this->m_Values[i] + _rOther.Get(i);
         
     }
 
@@ -46,11 +46,11 @@ void CVector::AddAndSet(CVector& _rOther){
 
 CVector* CVector::Sub(CVector& _rOther){
 
-    float result[this->s_Dimensions];
+    std::array<float, s_Dimensions> result = {};
 
     for (int i = 0; i < this->s_Dimensions; i++) {
         
-        result[i] = this->m_Values[i] - _rOther[i];
+        result[i] = this->m_Values[i] - _rOther.Get(i);
         
     }
 
@@ -65,7 +65,7 @@ void CVector::SubAndSet(CVector& _rOther){
 
 CVector* CVector::Mul(float _Value){
 
-    float result[this->s_Dimensions];
+    std::array<float, s_Dimensions> result = {};
 
     for (int i = 0; i < this->s_Dimensions; i++) {
         
@@ -78,17 +78,17 @@ CVector* CVector::Mul(float _Value){
 
 void CVector::MulAndSet(float _Value){
 
-    this->Set(this->Mul(_rOther));
+    this->Set(this->Mul(_Value));
         
 };
 
 float CVector::Dot3(CVector& _rOther){
 
-    float result;
+    float result = 0.0f;
 
     for (int i = 0; i < 3; i++) {
         
-        result =+ this->m_Values[i] * _rOther->Get()[i];
+        result += this->m_Values[i] * (_rOther.Get(i));
         
     }
 
@@ -97,12 +97,13 @@ float CVector::Dot3(CVector& _rOther){
 };
 
 CVector* CVector::Cross3(CVector& _rOther){
+    
+    std::array<float, CVector::s_Dimensions> result;
 
-    float result[3];
-
-    result[0] = this->m_Values[1] * _rOther->Get()[2] - this->m_Values[2] * _rOther->Get()[1];
-    result[1] = this->m_Values[2] * _rOther->Get()[0] - this->m_Values[0] * _rOther->Get()[2];
-    result[2] = this->m_Values[0] * _rOther->Get()[1] - this->m_Values[1] * _rOther->Get()[0];
+    result[0] = this->m_Values[1] * _rOther.Get()[2] - this->m_Values[2] * _rOther.Get()[1];
+    result[1] = this->m_Values[2] * _rOther.Get()[0] - this->m_Values[0] * _rOther.Get()[2];
+    result[2] = this->m_Values[0] * _rOther.Get()[1] - this->m_Values[1] * _rOther.Get()[0];
+    result[3] = this->m_Values[3];
 
     return new CVector(result);
 
@@ -118,11 +119,11 @@ void CVector::Cross3AndSet(CVector& _rOther){
 
 float CVector::GetLength() const{
 
-    double temp = 0.0f
+    double temp = 0.0f;
 
     for (int i = 0; i < this->s_Dimensions; i++) {
         
-        temp =+ pow(this->m_Values[i], 2);
+        temp += pow(this->m_Values[i], 2);
 
     }
 
@@ -142,19 +143,17 @@ void CVector::Normalize(){
 
 };
 
-void CVector()
+CVector::CVector()
 {
-    for (int i = 0; i < this->s_Dimensions; i++) {
 
-        this->m_Values[i] = 0;
-        
-    }
+    m_Values.fill(0);
+
 };
 
-void CVector::CVector(float* _Values)
+CVector::CVector(std::array<float, CVector::s_Dimensions>& _Values)
     : m_Values(_Values)
 {};
 
-void CVector(CVector& _Vector)
+CVector::CVector(CVector& _Vector)
     : m_Values(_Vector.Get())
 {};

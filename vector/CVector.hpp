@@ -1,44 +1,44 @@
 #pragma once
+#include <array>
 
-class CVector{
 
-    public:
-        
-        static constexpr int s_Dimensions = 4;
 
-        void Set(int _Index, float _Value);
-        void Set(CVector& _Vector);
+class CVector {
 
-        float Get(int _Index) const;
-        float Get() const;
+public:
 
-        CVector* Add(CVector& _rOther);
-        void AddAndSet(CVector& _rOther);
+    static constexpr int s_Dimensions = 4;
 
-        CVector* Sub(CVector& _rOther);
-        void SubAndSet(CVector& _rOther);
+    void Set(int _Index, float _Value);
+    void Set(CVector* _Vector);
 
-        CVector* Mul(float _Value);
-        void MulAndSet(float _Value);
+    float Get(int _Index) const;
+    std::array<float, s_Dimensions> Get() const;
 
-        float Dot3(CVector& _rOther);
-        CVector* Cross3(CVector& _rOther);
-        void Cross3AndSet(CVector& _rOther);
-        
-        CVector* GetNormalized();
-        void Normalize();
+    CVector* Add(CVector& _rOther);
+    void AddAndSet(CVector& _rOther);
 
-        
+    CVector* Sub(CVector& _rOther);
+    void SubAndSet(CVector& _rOther);
 
-        float GetLength() const;
-        CVector* GetCross(const CVector& _rOther) const;
+    CVector* Mul(float _Value);
+    void MulAndSet(float _Value);
 
-        void CVector();
-        void CVector(float* _Values);
-        void CVector(CVector* _Vector);
+    float Dot3(CVector& _rOther);
+    CVector* Cross3(CVector& _rOther);
+    void Cross3AndSet(CVector& _rOther);
 
-    private:
+    CVector* GetNormalized();
+    void Normalize();
 
-        float m_Values[s_Dimensions];
+    float GetLength() const;
 
-}
+    CVector();
+    CVector(std::array<float, 4>& _Values);
+    CVector(CVector& _Vector);
+
+private:
+
+    std::array<float, s_Dimensions> m_Values;
+
+};

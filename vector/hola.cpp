@@ -5,10 +5,13 @@ int main(){
 
     printf("buenas dias :)\n");
     
+    std::array<float, CVector::s_Dimensions> floatValues = {1,2,3,4};
+    CVector *epicVector = new CVector(floatValues);
 
-    float[4] floatValues = {4,2,3,1};
-    CVector epicVector = new CVector(floatValues);
-    float dotProduct = epicVector.Dot3();
+    std::array<float, CVector::s_Dimensions> floatValues2 = { 3,2,1,4 };
+    CVector* unEpicVector = new CVector(floatValues2);
+
+    float dotProduct = epicVector->Dot3(*unEpicVector);
     
     printf("%.6f", dotProduct);
 

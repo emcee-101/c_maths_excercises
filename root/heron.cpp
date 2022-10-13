@@ -2,10 +2,10 @@
 #include <iostream>
 #include <cmath>
 
-float heron(int number, int grade) {
+double heron(int number, int grade) {
 
-	float result = 0.0f;
-	float x = 1.0f;
+	double result = 0.0f;
+	double x = 1.0f;
 	int count = 0;
 	float desired_accuracy = 0.01f;
 	float cur_accuracy = 1000.0f;
