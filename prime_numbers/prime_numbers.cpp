@@ -1,6 +1,5 @@
 #include <iostream>
 #include "prime_numbers.hpp"
-#include <vector>
 
 void printVal(std::vector<int> &nums){
 

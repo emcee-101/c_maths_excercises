@@ -23,5 +23,8 @@
     <ClCompile Include="CMatrix.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

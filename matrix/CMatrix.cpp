@@ -106,6 +106,8 @@ CMatrix* CMatrix::Mul(CMatrix& _rOther) {
 
 	};
 
+	return result;
+
 };
 
 void CMatrix::MulAndSet(CMatrix& _rOther) {
@@ -115,12 +117,23 @@ void CMatrix::MulAndSet(CMatrix& _rOther) {
 
 };
 
-CMatrix* CMatrix::Mul(CVector& _Value) {
+CVector* CMatrix::Mul(CVector& _Value) {
 
-	CMatrix* result = new CMatrix();
+	CVector* result = new CVector();
 
-	//logic
+	float newVal = 0.0f;
 
+	for (int posX = 0; posX < heigthAndWidth; posX++) {
+
+		for (int posInRow = 0; posInRow < heigthAndWidth; posInRow++) {
+
+			newVal += s_Values[posX + posInRow * heigthAndWidth] * _Value.Get(posInRow);
+
+		};
+
+		result->Set(posX, newVal);
+
+	};
 
 	return result;
 

@@ -37,7 +37,7 @@ class CMatrix {
 		CMatrix* Mul(CMatrix& _rOther);
 		void MulAndSet(CMatrix& _rOther);
 
-		CMatrix* Mul(CVector& _Value);
+		CVector* Mul(CVector& _Value);
 
 	private:
 
