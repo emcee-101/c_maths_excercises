@@ -128,9 +128,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CMatrix.hpp" />
+    <ClInclude Include="CVector.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CMatrix.cpp" />
+    <ClCompile Include="CVector.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

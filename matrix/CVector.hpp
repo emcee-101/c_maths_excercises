@@ -1,7 +1,6 @@
 #pragma once
 #include <array>
 
-// on inclusion in the CMatrix Class it may be necessary to access this class exclusively as a pointer so that a forward declaration will be sufficient to include the class
 
 
 class CVector {

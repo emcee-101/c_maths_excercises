@@ -18,12 +18,18 @@
     <ClInclude Include="CMatrix.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="CVector.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CMatrix.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="CVector.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
