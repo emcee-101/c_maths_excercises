@@ -1,34 +1,38 @@
 #include <iostream>
 #include "prime_numbers.hpp"
 
-void printVal(std::vector<int> &nums){
+void printVal(bool numbers[], int n){
 
-	std::cout << nums.size() << "\n";
+	for (int i = 0; i < (n + 1); i++) {
 
+		(numbers[i]) ? (std::cout << "Die Zahl "<< i << " ist eine Primzahl.\n") : (std::cout<<"");
+	}
 }
 
-std::vector<int> getPrimeNumbers(int n) {
+void printPrimeNumbers(int n) {
 
-	std::vector<int> numbers(0);
 
-	printVal(numbers);
+	bool* numbers = new bool[n+1];
 
-	for (int h = 2; h < n + 1; h++) {
+	// initialization of first two values (cos 0 and 1 are no prime numbers)
+	numbers[0] = false;
 
-		numbers.push_back(h);
-
+	if (n<0){
+		numbers[1] = false;
 	}
 
-	printVal(numbers);
-
-	for (int i = 2; i < (trunc(sqrt(n))+1); i++){
+	for (int i = 2; i < (trunc((float) sqrt(n))+1); i++){
 		
 		for (int k = i; i < (trunc(n / i) + 1) ; k++) {
 
 			// i * k is not a prime number
+			numbers[i * k] = false;
 
 		}
 	
 	}
+
+	printVal(numbers, n);
+	delete[] numbers;
 
 };
