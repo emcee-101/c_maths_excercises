@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "prime_numbers", "prime_numb
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "matrix", "matrix\matrix.vcxproj", "{BFAAA2CC-C954-4B1E-88FC-C567397A5B33}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "calc-pi", "calc-pi\calc-pi.vcxproj", "{F4380AEB-336B-4127-A5DF-2786A9AF6DA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +53,14 @@ Global
 		{BFAAA2CC-C954-4B1E-88FC-C567397A5B33}.Release|x64.Build.0 = Release|x64
 		{BFAAA2CC-C954-4B1E-88FC-C567397A5B33}.Release|x86.ActiveCfg = Release|Win32
 		{BFAAA2CC-C954-4B1E-88FC-C567397A5B33}.Release|x86.Build.0 = Release|Win32
+		{F4380AEB-336B-4127-A5DF-2786A9AF6DA2}.Debug|x64.ActiveCfg = Debug|x64
+		{F4380AEB-336B-4127-A5DF-2786A9AF6DA2}.Debug|x64.Build.0 = Debug|x64
+		{F4380AEB-336B-4127-A5DF-2786A9AF6DA2}.Debug|x86.ActiveCfg = Debug|Win32
+		{F4380AEB-336B-4127-A5DF-2786A9AF6DA2}.Debug|x86.Build.0 = Debug|Win32
+		{F4380AEB-336B-4127-A5DF-2786A9AF6DA2}.Release|x64.ActiveCfg = Release|x64
+		{F4380AEB-336B-4127-A5DF-2786A9AF6DA2}.Release|x64.Build.0 = Release|x64
+		{F4380AEB-336B-4127-A5DF-2786A9AF6DA2}.Release|x86.ActiveCfg = Release|Win32
+		{F4380AEB-336B-4127-A5DF-2786A9AF6DA2}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
