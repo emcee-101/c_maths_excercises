@@ -21,7 +21,7 @@ void DrawLine(int _X1, int _Y1, int _X2, int _Y2)
     if (distance_X < distance_Y) {
 
         int cur_Y = 0;
-        double cur_fail = distance_X / 2.0f;
+        double cur_err = distance_X / 2.0f;
 
 
         // draw initial Point
@@ -30,18 +30,23 @@ void DrawLine(int _X1, int _Y1, int _X2, int _Y2)
 
         for (int cur_X = 1; cur_X < distance_X; ++cur_X)
         {
-            // decide wheter cur_Y can be elevated or not
-            cur_fail -=  distance_Y;
-        
-            if (cur_fail < 0) {
+            
+            cur_err -=  distance_Y;
+            
+
+            // decide wether cur_Y can be elevated or not
+            if (cur_err < 0) {
+
                 cur_Y += 1;
-                cur_fail += distance_X;
+                cur_err += distance_X;
+
             };
 
-            //std::cout << "Point X= " << cur_X << ", Y= " << cur_Y << "\n";
+            //  Debug Output:
+            //      std::cout << "Point X= " << cur_X << ", Y= " << cur_Y << "\n";
+
             DrawPixel(cur_X+_X1, cur_Y+_Y1);
 
-        
         }
     };
 
