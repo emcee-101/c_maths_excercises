@@ -2,6 +2,7 @@
 // Base Code provided by Professor Sahm
 
 #include "widget.hpp"
+#include <iostream>
 
 
 
@@ -10,12 +11,40 @@
 // -----------------------------------------------------------------------------
 void DrawLine(int _X1, int _Y1, int _X2, int _Y2)
 {
-    // Draws a horizontal line at the moment. 
-    // Change this to draw an arbitrary line.
-    for (int X = _X1; X < _X2; ++X)
-    {
-        DrawPixel(X, _Y1);
-    }
+
+    // OWN CODE
+
+    int distance_X = _X2 - _X1;
+    int distance_Y = _Y2 - _Y1;
+
+    // decide if x or y is growing faster
+    if (distance_X < distance_Y) {
+
+        int cur_Y = 0;
+        double cur_fail = distance_X / 2.0f;
+
+
+        // draw initial Point
+        DrawPixel(_X1, _Y1);
+    
+
+        for (int cur_X = 1; cur_X < distance_X; ++cur_X)
+        {
+            // decide wheter cur_Y can be elevated or not
+            cur_fail -=  distance_Y;
+        
+            if (cur_fail < 0) {
+                cur_Y += 1;
+                cur_fail += distance_X;
+            };
+
+            //std::cout << "Point X= " << cur_X << ", Y= " << cur_Y << "\n";
+            DrawPixel(cur_X+_X1, cur_Y+_Y1);
+
+        
+        }
+    };
+
 }
 
 // -----------------------------------------------------------------------------
@@ -24,7 +53,10 @@ void DrawLine(int _X1, int _Y1, int _X2, int _Y2)
 void OnDraw()
 {
     // Add another DrawLine command here if you want to draw multiple lines.
-    DrawLine(20, 100, 620, 100);
+    //DrawLine(20, 100, 620, 100);
+    
+    // Line to leverage the Bresenham Algorithm
+    DrawLine(20, 100, 620, 200);
 }
 
 void main()

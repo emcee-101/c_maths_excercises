@@ -66,7 +66,7 @@ bool OpenWindow(int _Width, int _Height, const char* _pTitle)
 
     WindowClass.cbSize = sizeof(WindowClass);                        // The number of bytes of the 'WindowClass' descriptor.
     WindowClass.style = CS_HREDRAW | CS_VREDRAW | CS_DBLCLKS;       // The style of our window, which for example defines the behavior when our window is resized.
-    WindowClass.lpfnWndProc = ProcessMessages;                            // The method where the messages of the operating system are processed.
+    WindowClass.lpfnWndProc =  ProcessMessages;                            // The method where the messages of the operating system are processed.
     WindowClass.cbClsExtra = 0;                                          // The number of extra bytes we want to append to our 'WindowClass' descriptor.
     WindowClass.cbWndExtra = 0;                                          // The number of extra bytes we want to append to our 'HWND' handle.
     WindowClass.hInstance = pNativeApplication;                         // A handle to the instance, which owns the 'ProcessMessages' method, i.e. our application.
