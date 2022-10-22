@@ -17,7 +17,11 @@ void DrawLine(int _X1, int _Y1, int _X2, int _Y2)
     int distance_X = _X2 - _X1;
     int distance_Y = _Y2 - _Y1;
 
+    if (distance_X < 0) distance_X = -distance_X;
+    if (distance_Y < 0) distance_Y = -distance_Y;
+
     // decide if x or y is growing faster
+    // only x implemented at the moment
     if (distance_X < distance_Y) {
 
         int cur_Y = 0;
