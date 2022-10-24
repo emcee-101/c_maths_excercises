@@ -6,23 +6,29 @@
 
 
 
+
 // -----------------------------------------------------------------------------
 // Draws a line from (X1,Y1) to (X2,Y2).
 // -----------------------------------------------------------------------------
 void DrawLine(int _X1, int _Y1, int _X2, int _Y2)
 {
-
     // OWN CODE
 
     int distance_X = _X2 - _X1;
     int distance_Y = _Y2 - _Y1;
 
+
+
     if (distance_X < 0) distance_X = -distance_X;
     if (distance_Y < 0) distance_Y = -distance_Y;
 
+
+
+
     // decide if x or y is growing faster
     // only x implemented at the moment
-    if (distance_X < distance_Y) {
+    if (distance_X > distance_Y) {
+        
 
         int cur_Y = 0;
         double cur_err = distance_X / 2.0f;
@@ -34,7 +40,8 @@ void DrawLine(int _X1, int _Y1, int _X2, int _Y2)
 
         for (int cur_X = 1; cur_X < distance_X; ++cur_X)
         {
-            
+            // std::cout << "amongus";
+
             cur_err -=  distance_Y;
             
 
@@ -47,7 +54,7 @@ void DrawLine(int _X1, int _Y1, int _X2, int _Y2)
             };
 
             //  Debug Output:
-            //      std::cout << "Point X= " << cur_X << ", Y= " << cur_Y << "\n";
+            // std::cout << "Point X= " << cur_X << ", Y= " << cur_Y << "\n";
 
             DrawPixel(cur_X+_X1, cur_Y+_Y1);
 
@@ -65,7 +72,7 @@ void OnDraw()
     //DrawLine(20, 100, 620, 100);
     
     // Line to leverage the Bresenham Algorithm
-    DrawLine(20, 100, 620, 200);
+    DrawLine(20, 100, 650, 300);
 }
 
 void main()
