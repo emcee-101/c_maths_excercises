@@ -15,6 +15,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "calc-pi", "calc-pi\calc-pi.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bresenham", "bresenham\bresenham.vcxproj", "{5F6AC472-6CA1-48F4-AE16-DEDE1037F0BE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "calc_area", "calc_area\calc_area.vcxproj", "{B011D2B9-BEF7-44AD-93E8-5F9BA51AAF90}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -71,6 +73,14 @@ Global
 		{5F6AC472-6CA1-48F4-AE16-DEDE1037F0BE}.Release|x64.Build.0 = Release|x64
 		{5F6AC472-6CA1-48F4-AE16-DEDE1037F0BE}.Release|x86.ActiveCfg = Release|Win32
 		{5F6AC472-6CA1-48F4-AE16-DEDE1037F0BE}.Release|x86.Build.0 = Release|Win32
+		{B011D2B9-BEF7-44AD-93E8-5F9BA51AAF90}.Debug|x64.ActiveCfg = Debug|x64
+		{B011D2B9-BEF7-44AD-93E8-5F9BA51AAF90}.Debug|x64.Build.0 = Debug|x64
+		{B011D2B9-BEF7-44AD-93E8-5F9BA51AAF90}.Debug|x86.ActiveCfg = Debug|Win32
+		{B011D2B9-BEF7-44AD-93E8-5F9BA51AAF90}.Debug|x86.Build.0 = Debug|Win32
+		{B011D2B9-BEF7-44AD-93E8-5F9BA51AAF90}.Release|x64.ActiveCfg = Release|x64
+		{B011D2B9-BEF7-44AD-93E8-5F9BA51AAF90}.Release|x64.Build.0 = Release|x64
+		{B011D2B9-BEF7-44AD-93E8-5F9BA51AAF90}.Release|x86.ActiveCfg = Release|Win32
+		{B011D2B9-BEF7-44AD-93E8-5F9BA51AAF90}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
