@@ -29,30 +29,53 @@ int main() {
 	for (int element = 0; element <= 16; element++) {
 		// copy
 		rMatrix[element] = lgMatrix[element];
-		lMatrix[element] = lgMatrix[element];
 	};
 
 	// ELIMMINTATION
 
-	int posNeededForSplitR[6] = {1, 2, 3, 6, 7, 11};
-	int posNeededForSplitL[6] = {4, 8, 9, 12, 13, 14};
+	// spalte
+	for (int spalte = 0; spalte < (4); spalte++) {
+		//ROW
+		for (int reihe = 0; reihe < 4; reihe ++) {
+			
+			if (spalte == reihe) { 
+				lMatrix[spalte + reihe * 4] = 1.0f;
+							} 
+			else if (reihe < spalte) {
+				lMatrix[spalte + reihe * 4] = rMatrix[spalte + reihe * 4] / rMatrix[spalte + (spalte) * 4];
 
-	float l2 = lgMatrix[0 + 1 * 4] / lgMatrix[0 + 0 * 4];
-	float l3 = lgMatrix[0 + 2 * 4] / lgMatrix[0 + 0 * 4];
+			
+				// spalte
+				for (int z = spalte; z < 4; z++) {
+						
+					rMatrix[z + reihe * 4] = rMatrix[z + reihe * 4] - lMatrix[spalte + reihe * 4] * rMatrix[z + ( reihe -1) * 4];
+				}
+				
+				
+			}
+			else {
+				lMatrix[spalte + reihe * 4] = 0.0f;
+			}
+		}
 
-	for (int element = 0; element <= 4; element++) {
 
-		// produce the zeroes
-		lMatrix[element + 1 * 4] = lMatrix[element + 1 * 4] - l2 * lgMatrix[element + 0 * 4];
-		lMatrix[element + 2 * 4] = lMatrix[element + 2 * 4] - l3 * lgMatrix[element + 0 * 4];
+			
+	}
 
-	};
+	for (int spalte = 0; spalte < 4; spalte++) {
+		for (int reihe = 0; reihe < 4; reihe ++) {
 
+			printf("%.6f ", lMatrix[spalte + reihe * 4]);
 
-	for (int i = 0; i<4; i++){
-		for (int y  = 0; y < 4; y++) {
+		}
+		printf("\n");
+	}
+	
 
-			printf("%.6f", lMatrix[y + i * 4]);
+	for (int spalte = 0; spalte<4; spalte++){
+		for (int reihe  = 0; reihe < 4; reihe ++) {
+
+			printf("%.6f ", rMatrix[spalte + reihe * 4]);
 
 		}
 		printf("\n");
