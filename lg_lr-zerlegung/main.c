@@ -3,7 +3,7 @@
 
 int main() {
 
-	float lgMatrix[4*4] = {-1.0f, 1.0f, -1.0f, 1.0f, 1.0f, 0.0f, -1.0f, 1.0f, 2.0f, 2.0f, 1.0f, -1.0f, -2.0f, -1.0f, 1.0f, 1.0f};
+	float rMatrix[4*4] = {-1.0f, 1.0f, -1.0f, 1.0f, 1.0f, 0.0f, -1.0f, 1.0f, 2.0f, 2.0f, 1.0f, -1.0f, -2.0f, -1.0f, 1.0f, 1.0f};
 
 	float resVector[4] = {1.0f, 2.0f, 3.0f, 4.0f};
 	
@@ -23,15 +23,10 @@ int main() {
 						\ 4 /
 	*/
 
-	float rMatrix[4 * 4] = { 0.0f };
 	float lMatrix[4 * 4] = { 0.0f };
 
-	for (int element = 0; element <= 16; element++) {
-		// copy
-		rMatrix[element] = lgMatrix[element];
-	};
 
-	// ELIMMINTATION
+	// ELIMINATION
 
 	// spalte
 	for (int spalte = 0; spalte < (4); spalte++) {
