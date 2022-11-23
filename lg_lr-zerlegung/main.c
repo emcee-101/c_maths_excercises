@@ -2,16 +2,16 @@
 #include <stdio.h>
 
 int changeMatrixVal(float* Matrix, int row, int collumn, float newVal);
-int calcRow(float* rMatrix, int row, int collumn, float factor);
+int calcRow(float* rMatrix, int row, float factor, int referenceRow);
 float accessMatrixVal(float* Matrix, int row, int collumn);
 void readMatrix(float* Matrix);
 void getIdentityMatrix(float* Matrix);
 
-int calcRow(float* rMatrix, int row, float factor) { 
+int calcRow(float* rMatrix, int row, float factor, int referenceRow) { 
 	
 	for (int collumn = 0; collumn < 4; collumn++) {
 
-		changeMatrixVal(rMatrix, row, collumn, accessMatrixVal(rMatrix, row, collumn) - (factor * accessMatrixVal(rMatrix, row-1, collumn)));
+		changeMatrixVal(rMatrix, row, collumn, accessMatrixVal(rMatrix, row, collumn) - (factor * accessMatrixVal(rMatrix, referenceRow, collumn)));
 	
 	}
 	
@@ -81,15 +81,21 @@ int main() {
 	getIdentityMatrix(lMatrix);
 	
 
-	
+	//readMatrix(rMatrix);
+
 	for (int step = 1; step < 4; step++) {
 
 		for (int reihe = step; reihe < 4; reihe++) {
 
 			// calc lM wert
 			changeMatrixVal(lMatrix, reihe, step - 1, calcFactor(accessMatrixVal(rMatrix, reihe, step - 1), accessMatrixVal(rMatrix, step-1, step-1)));
+
 			
-			calcRow(rMatrix, reihe, accessMatrixVal(lMatrix, reihe, step-1));
+			calcRow(rMatrix, reihe, accessMatrixVal(lMatrix, reihe, step-1), step-1);
+
+			//printf("Factor %.6f\n", accessMatrixVal(lMatrix, reihe, step - 1));
+			//readMatrix(rMatrix);
+			//printf("\n");
 		}
 
 
