@@ -1,79 +1,104 @@
 
 #include <stdio.h>
 
+int changeMatrixVal(float* Matrix, int row, int collumn, float newVal);
+int calcRow(float* rMatrix, int row, int collumn, float factor);
+float accessMatrixVal(float* Matrix, int row, int collumn);
+void readMatrix(float* Matrix);
+void getIdentityMatrix(float* Matrix);
+
+int calcRow(float* rMatrix, int row, float factor) { 
+	
+	for (int collumn = 0; collumn < 4; collumn++) {
+
+		changeMatrixVal(rMatrix, row, collumn, accessMatrixVal(rMatrix, row, collumn) - (factor * accessMatrixVal(rMatrix, row-1, collumn)));
+	
+	}
+	
+	return 0;
+
+};
+
+float accessMatrixVal(float* Matrix, int row, int collumn){
+
+	return Matrix[collumn + row * 4];
+
+}
+
+int changeMatrixVal(float* Matrix, int row, int collumn, float newVal) {
+
+	Matrix[collumn + row * 4] = newVal;
+
+	return 0;
+
+}
+
+void readMatrix(float* Matrix) {
+
+
+	for (int reihe = 0; reihe < 4; reihe++) {
+		for (int spalte = 0; spalte < 4; spalte++) {
+
+			printf("%.6f ", accessMatrixVal(Matrix,reihe,spalte));
+
+		}
+		printf("\n");
+	}
+
+};
+
+void getIdentityMatrix(float* Matrix){
+	
+	for (int spalte = 0; spalte < 4; spalte+= 1) {
+		for (int reihe = 0; reihe < 4; reihe += 1) {
+			
+			//printf("hello %d %d \n", spalte, reihe);
+			
+			if (reihe == spalte) {
+				
+				changeMatrixVal(Matrix, reihe, spalte, 1);
+				
+			}
+
+		}
+		printf("\n");
+	}
+}
+
+float calcFactor(float valToBeChanged, float referenceNum) {
+
+	return valToBeChanged / referenceNum;
+
+};
+
 int main() {
-
-	float rMatrix[4*4] = {-1.0f, 1.0f, -1.0f, 1.0f, 1.0f, 0.0f, -1.0f, 1.0f, 2.0f, 2.0f, 1.0f, -1.0f, -2.0f, -1.0f, 1.0f, 1.0f};
-
-	float resVector[4] = {1.0f, 2.0f, 3.0f, 4.0f};
 	
-	/*
-	                lgMatrix:
-					- ist in Row Major Order
-	 				- Gleichungssystem mir 4 Zeilen und jeweils 4 Faktoren
-					- multipliziert mit Vektor xT = {x1,x2,x3,x4} ergibt sich aus ihr resVector
-	*/
-
-
-	/*
-					Vektor xT Lösung:
-						/ 1 \
-						| 1 |		Doch wie kommen wir da hin?
-						| 3 |		LR-Substitution...
-						\ 4 /
-	*/
-
-	float lMatrix[4 * 4] = { 0.0f };
-
-
-	// ELIMINATION
-
-	// spalte
-	for (int spalte = 0; spalte < (4); spalte++) {
-		//ROW
-		for (int reihe = 0; reihe < 4; reihe ++) {
-			
-			if (spalte == reihe) { 
-				lMatrix[spalte + reihe * 4] = 1.0f;
-							} 
-			else if (reihe < spalte) {
-				lMatrix[spalte + reihe * 4] = rMatrix[spalte + reihe * 4] / rMatrix[spalte + (spalte) * 4];
-
-			
-				// spalte
-				for (int z = spalte; z < 4; z++) {
-						
-					rMatrix[z + reihe * 4] = rMatrix[z + reihe * 4] - lMatrix[spalte + reihe * 4] * rMatrix[z + ( reihe -1) * 4];
-				}
-				
-				
-			}
-			else {
-				lMatrix[spalte + reihe * 4] = 0.0f;
-			}
-		}
-
-
-			
-	}
-
-	for (int spalte = 0; spalte < 4; spalte++) {
-		for (int reihe = 0; reihe < 4; reihe ++) {
-
-			printf("%.6f ", lMatrix[spalte + reihe * 4]);
-
-		}
-		printf("\n");
-	}
+	// define the vals
+	float rMatrix[4 * 4] = {-1.0f, 1.0f, -1.0f, 1.0f, 1.0f, 0.0f, -1.0f, 1.0f, 2.0f, 2.0f, 1.0f, -1.0f, -2.0f, -1.0f, 1.0f, 1.0f};
+	float lMatrix[4 * 4] = {0.0f};
+	
+	// self explanatory
+	getIdentityMatrix(lMatrix);
 	
 
-	for (int spalte = 0; spalte<4; spalte++){
-		for (int reihe  = 0; reihe < 4; reihe ++) {
+	
+	for (int step = 1; step < 4; step++) {
 
-			printf("%.6f ", rMatrix[spalte + reihe * 4]);
+		for (int reihe = step; reihe < 4; reihe++) {
 
+			// calc lM wert
+			changeMatrixVal(lMatrix, reihe, step - 1, calcFactor(accessMatrixVal(rMatrix, reihe, step - 1), accessMatrixVal(rMatrix, step-1, step-1)));
+			
+			calcRow(rMatrix, reihe, accessMatrixVal(lMatrix, reihe, step-1));
 		}
-		printf("\n");
+
+
 	}
+
+	printf("Your rMatrix, Sire\n");
+	readMatrix(rMatrix);
+	printf("\n\nYour lMatrix, Sire\n");
+	readMatrix(lMatrix);
+
 	return 0;
 }
