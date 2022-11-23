@@ -1,6 +1,8 @@
 
 #include <stdio.h>
 
+
+// forward declare the functions
 int changeMatrixVal(float* Matrix, int row, int collumn, float newVal);
 int calcRow(float* rMatrix, int row, float factor, int referenceRow);
 float accessMatrixVal(float* Matrix, int row, int collumn);
