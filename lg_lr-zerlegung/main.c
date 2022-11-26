@@ -1,8 +1,11 @@
 
 #include <stdio.h>
 
+// wanted to use macro for the number of rows (since we are using symmetrical matrixes and vectors here), but it wont work
+// #define ROWS 4;
 
-// forward declare the functions
+
+// forward declare the helping functions
 int changeMatrixVal(float* Matrix, int row, int collumn, float newVal);
 int calcRow(float* rMatrix, int row, float factor, int referenceRow);
 float accessMatrixVal(float* Matrix, int row, int collumn);
