@@ -19,6 +19,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "calc_area", "calc_area\calc
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "regression", "regression\regression.vcxproj", "{1AF45569-FC3D-4891-9F39-403F862745FB}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "optima", "optima\optima.vcxproj", "{7AD2C193-C35B-4876-979F-672CA585BE0E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -91,6 +93,14 @@ Global
 		{1AF45569-FC3D-4891-9F39-403F862745FB}.Release|x64.Build.0 = Release|x64
 		{1AF45569-FC3D-4891-9F39-403F862745FB}.Release|x86.ActiveCfg = Release|Win32
 		{1AF45569-FC3D-4891-9F39-403F862745FB}.Release|x86.Build.0 = Release|Win32
+		{7AD2C193-C35B-4876-979F-672CA585BE0E}.Debug|x64.ActiveCfg = Debug|x64
+		{7AD2C193-C35B-4876-979F-672CA585BE0E}.Debug|x64.Build.0 = Debug|x64
+		{7AD2C193-C35B-4876-979F-672CA585BE0E}.Debug|x86.ActiveCfg = Debug|Win32
+		{7AD2C193-C35B-4876-979F-672CA585BE0E}.Debug|x86.Build.0 = Debug|Win32
+		{7AD2C193-C35B-4876-979F-672CA585BE0E}.Release|x64.ActiveCfg = Release|x64
+		{7AD2C193-C35B-4876-979F-672CA585BE0E}.Release|x64.Build.0 = Release|x64
+		{7AD2C193-C35B-4876-979F-672CA585BE0E}.Release|x86.ActiveCfg = Release|Win32
+		{7AD2C193-C35B-4876-979F-672CA585BE0E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
