@@ -77,38 +77,45 @@ void doTheGaussSeidel(){
 	// define the vals
 	float linMatrix[3 * 3] = { 3.0f, 1.0f, 0.0f, 1.0f, 3.0f, 1.0f, 0.0f, 1.0f, 3.0f };
 	float bVector[3] = { 1.0f,5.0f,7.0f };		// the "result" vector
+
 	float tempResultVector[3] = { 0.0f };
-	float olderTempResultVector[3] = {0.0f};
-	int totalRuns = 30;
+	int totalRuns = 10;
 	float tempVal = 0.0f;
 	float tempVal2 = 0.0f;
 	float tempTestAccessVal = 0.0f;
+
+	// KONVERGENZKRITERIUM fehlt!!!
 
 
 	for (int runs = 0; runs < totalRuns; runs++) {
 
 		for (int row = 0; row < 3; row++) {
 
-			for (int collumn = 0; collumn < 3; collumn++) {
-
+			for (int collumn = 0; collumn < (row-1); collumn++) {
+			
+				tempVal += accessMatrixVal(linMatrix, row, collumn) * tempResultVector[collumn];
 				
-				tempVal += accessMatrixVal(linMatrix, row, collumn) * tempResultVector[row];
-				tempVal2 += accessMatrixVal(linMatrix, row, collumn) * olderTempResultVector[row];
+			}
 
+			for (int collumn = (row+1); collumn < 3; collumn++) {
+			
+				tempVal2 += accessMatrixVal(linMatrix, row, collumn) * tempResultVector[collumn];
+			
 			}
 			
 
 			tempResultVector[row] = 1 / accessMatrixVal(linMatrix, row, row) * (bVector[row] - tempVal - tempVal2);
 
 			tempVal = 0.0f;
+			tempVal2 = 0.0f;
 
 		}
 
-		printf("\n\nThe current run sees the following result, Sire:\n");
-		readVector(tempResultVector);
+		//printf("\n\nThe current run sees the following result, Sire:\n");
+		//readVector(tempResultVector);
 	}
 
-	printf("Your linMatrix, Sire:\n");
+	printf("\n\nYour linMatrix, Sire:\n");
 	readMatrix(linMatrix);
 
 	printf("Your bMatrix, Sire:\n");
@@ -116,6 +123,7 @@ void doTheGaussSeidel(){
 
 	printf("\n\nYour tempResultVector, Sire:\n");
 	readVector(tempResultVector);
+	printf("\n\n");
 
 }
 
@@ -164,12 +172,13 @@ void doTheJacobi() {
 
 	printf("\n\nYour tempResultVector, Sire:\n");
 	readVector(tempResultVector);
+	printf("\n\n");
 
 }
 
 int main() {
 	
-	//doTheJacobi();
+	doTheJacobi();
 	doTheGaussSeidel();
 
 	return 0;
