@@ -31,6 +31,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "simulated_annealing", "simu
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "minimum_spanning_tree", "minimum_spanning_tree\minimum_spanning_tree.vcxproj", "{F49F96A4-D55C-4E95-830B-C3E9593FD168}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "search_text", "search_text\search_text.vcxproj", "{76EEE87C-406C-4EB3-AA7D-E4A1095288FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -151,6 +153,14 @@ Global
 		{F49F96A4-D55C-4E95-830B-C3E9593FD168}.Release|x64.Build.0 = Release|x64
 		{F49F96A4-D55C-4E95-830B-C3E9593FD168}.Release|x86.ActiveCfg = Release|Win32
 		{F49F96A4-D55C-4E95-830B-C3E9593FD168}.Release|x86.Build.0 = Release|Win32
+		{76EEE87C-406C-4EB3-AA7D-E4A1095288FE}.Debug|x64.ActiveCfg = Debug|x64
+		{76EEE87C-406C-4EB3-AA7D-E4A1095288FE}.Debug|x64.Build.0 = Debug|x64
+		{76EEE87C-406C-4EB3-AA7D-E4A1095288FE}.Debug|x86.ActiveCfg = Debug|Win32
+		{76EEE87C-406C-4EB3-AA7D-E4A1095288FE}.Debug|x86.Build.0 = Debug|Win32
+		{76EEE87C-406C-4EB3-AA7D-E4A1095288FE}.Release|x64.ActiveCfg = Release|x64
+		{76EEE87C-406C-4EB3-AA7D-E4A1095288FE}.Release|x64.Build.0 = Release|x64
+		{76EEE87C-406C-4EB3-AA7D-E4A1095288FE}.Release|x86.ActiveCfg = Release|Win32
+		{76EEE87C-406C-4EB3-AA7D-E4A1095288FE}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
