@@ -79,7 +79,7 @@ void doTheGaussSeidel(){
 	float bVector[3] = { 1.0f,5.0f,7.0f };		// the "result" vector
 
 	float tempResultVector[3] = { 0.0f };
-	int totalRuns = 10;
+	int totalRuns = 30;
 	float tempVal = 0.0f;
 	float tempVal2 = 0.0f;
 	float tempTestAccessVal = 0.0f;
